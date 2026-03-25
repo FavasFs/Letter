@@ -1,0 +1,489 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Happy Dilsha Mubarak, Kindikkuttaa 🤍</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Lato:wght@300;400&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --cream: #fdf6ee;
+        --ink: #2c1f14;
+        --gold: #b8860b;
+        --rose: #c47a6a;
+        --envelope-front: #f0d9c0;
+        --envelope-back: #e8cba8;
+        --flap: #d4b896;
+        --shadow: rgba(44, 31, 20, 0.2);
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        background: linear-gradient(
+          135deg,
+          #f7ede2 0%,
+          #ede0d4 50%,
+          #e8d5c4 100%
+        );
+        min-height: 100vh;
+        font-family: "Lato", sans-serif;
+        overflow-x: hidden;
+      }
+
+      body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23b8860b' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/svg%3E");
+        pointer-events: none;
+        z-index: 0;
+      }
+
+      /* ════════════════════════════
+     ENVELOPE STAGE
+  ════════════════════════════ */
+      #stage {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        position: relative;
+        z-index: 1;
+      }
+
+      .env-wrap {
+        position: relative;
+        width: min(480px, 92vw);
+        height: 320px;
+        perspective: 1400px;
+        cursor: pointer;
+      }
+
+      .env-body {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          160deg,
+          var(--envelope-front) 0%,
+          var(--envelope-back) 100%
+        );
+        border-radius: 4px 4px 10px 10px;
+        box-shadow:
+          0 16px 50px var(--shadow),
+          0 4px 16px rgba(0, 0, 0, 0.08);
+        overflow: hidden;
+      }
+      .env-body::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+          linear-gradient(
+            135deg,
+            transparent calc(50% - 1px),
+            rgba(180, 140, 90, 0.2) calc(50% - 1px),
+            rgba(180, 140, 90, 0.2) calc(50% + 1px),
+            transparent calc(50% + 1px)
+          ),
+          linear-gradient(
+            225deg,
+            transparent calc(50% - 1px),
+            rgba(180, 140, 90, 0.2) calc(50% - 1px),
+            rgba(180, 140, 90, 0.2) calc(50% + 1px),
+            transparent calc(50% + 1px)
+          );
+      }
+
+      .env-flap {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 55%;
+        transform-origin: top center;
+        transform-style: preserve-3d;
+        z-index: 10;
+      }
+      .env-flap-inner {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          175deg,
+          var(--flap) 0%,
+          var(--envelope-front) 100%
+        );
+        clip-path: polygon(0 0, 100% 0, 50% 100%);
+        backface-visibility: hidden;
+      }
+      .env-flap-inner::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.14) 0%,
+          transparent 55%
+        );
+        clip-path: polygon(0 0, 100% 0, 50% 100%);
+      }
+
+      .seal {
+        position: absolute;
+        bottom: 30px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 56px;
+        height: 56px;
+        background: radial-gradient(circle at 38% 38%, #d4415a, #8b1a2a);
+        border-radius: 50%;
+        box-shadow:
+          0 3px 10px rgba(139, 26, 42, 0.45),
+          inset 0 1px 3px rgba(255, 255, 255, 0.15);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 24px;
+        z-index: 6;
+      }
+
+      .tap-hint {
+        position: absolute;
+        bottom: -44px;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 11px;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        color: var(--rose);
+        white-space: nowrap;
+        opacity: 0.75;
+        animation: pulse 2.2s ease-in-out infinite;
+      }
+      @keyframes pulse {
+        0%,
+        100% {
+          opacity: 0.4;
+        }
+        50% {
+          opacity: 0.9;
+        }
+      }
+
+      /* Open animations */
+      .env-wrap.open .env-flap {
+        animation: flap-open 0.75s cubic-bezier(0.4, 0, 0.2, 1) 0.1s forwards;
+      }
+      @keyframes flap-open {
+        to {
+          transform: rotateX(-180deg);
+        }
+      }
+
+      .env-wrap.open .seal {
+        animation: seal-out 0.3s ease 0.1s forwards;
+      }
+      @keyframes seal-out {
+        to {
+          opacity: 0;
+          transform: translateX(-50%) scale(0.5);
+        }
+      }
+
+      .env-wrap.open .tap-hint {
+        visibility: hidden;
+      }
+
+      /* ════════════════════════════
+     LETTER PAGE
+  ════════════════════════════ */
+      #letter-page {
+        display: none;
+        position: relative;
+        z-index: 1;
+        padding: 48px 20px 100px;
+        justify-content: center;
+      }
+
+      #letter-page.visible {
+        display: flex;
+      }
+
+      .letter {
+        width: min(640px, 96vw);
+        background: var(--cream);
+        border-radius: 4px;
+        box-shadow:
+          0 10px 60px rgba(44, 31, 20, 0.14),
+          0 2px 12px rgba(0, 0, 0, 0.06);
+        padding: clamp(40px, 7vw, 72px) clamp(32px, 7vw, 68px)
+          clamp(52px, 8vw, 80px);
+        position: relative;
+        opacity: 0;
+        transform: translateY(48px);
+        animation: letter-enter 1s cubic-bezier(0.22, 1, 0.36, 1) 0.15s forwards;
+      }
+
+      @keyframes letter-enter {
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .letter::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-image: repeating-linear-gradient(
+          transparent,
+          transparent 31px,
+          rgba(180, 140, 90, 0.07) 31px,
+          rgba(180, 140, 90, 0.07) 32px
+        );
+        border-radius: 4px;
+        pointer-events: none;
+      }
+
+      .letter-inner {
+        position: relative;
+        z-index: 1;
+      }
+
+      .ltr-header {
+        text-align: center;
+        margin-bottom: 32px;
+        padding-bottom: 24px;
+        border-bottom: 1px solid rgba(184, 134, 11, 0.18);
+      }
+      .ltr-for {
+        font-family: "Cormorant Garamond", serif;
+        font-size: clamp(13px, 2vw, 15px);
+        letter-spacing: 4px;
+        text-transform: uppercase;
+        color: var(--gold);
+        margin-bottom: 7px;
+      }
+      .ltr-date {
+        font-size: 10px;
+        letter-spacing: 2.5px;
+        text-transform: uppercase;
+        color: rgba(44, 31, 20, 0.35);
+      }
+
+      .ltr-body {
+        font-family: "Cormorant Garamond", serif;
+        font-size: clamp(17px, 2.6vw, 19px);
+        font-weight: 300;
+        line-height: 1.95;
+        color: var(--ink);
+      }
+      .ltr-body p {
+        margin-bottom: 20px;
+        text-align: justify;
+        hyphens: auto;
+      }
+      .ltr-opener {
+        font-style: italic !important;
+        font-size: clamp(18px, 3vw, 22px) !important;
+        font-weight: 400 !important;
+        color: var(--rose) !important;
+        margin-bottom: 24px !important;
+      }
+      .divider {
+        text-align: center;
+        color: var(--gold);
+        font-size: 11px;
+        letter-spacing: 10px;
+        opacity: 0.4;
+        margin: 4px 0 22px;
+      }
+      .ltr-closer {
+        margin-top: 32px !important;
+        text-align: right !important;
+        font-style: italic;
+        font-size: clamp(17px, 2.6vw, 19px) !important;
+        color: var(--rose) !important;
+        line-height: 1.75;
+      }
+      .sign {
+        display: block;
+        font-family: "Playfair Display", serif;
+        font-style: normal;
+        font-size: 11px;
+        letter-spacing: 2.5px;
+        text-transform: uppercase;
+        color: rgba(44, 31, 20, 0.35);
+        margin-top: 8px;
+      }
+
+      /* ════════════════════════════
+     PETALS
+  ════════════════════════════ */
+      .petals {
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        z-index: 200;
+      }
+      .petal {
+        position: absolute;
+        top: -24px;
+        opacity: 0;
+        animation: petal-fall linear forwards;
+      }
+      @keyframes petal-fall {
+        0% {
+          opacity: 0;
+          transform: translateY(0) rotate(0deg);
+        }
+        8% {
+          opacity: 0.85;
+        }
+        90% {
+          opacity: 0.5;
+        }
+        100% {
+          opacity: 0;
+          transform: translateY(110vh) rotate(700deg);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="stage">
+      <div class="env-wrap" id="envWrap">
+        <div class="env-flap"><div class="env-flap-inner"></div></div>
+        <div class="env-body"></div>
+        <div class="seal">🌸</div>
+        <div class="tap-hint">tap to open</div>
+      </div>
+    </div>
+
+    <div id="letter-page">
+      <div class="letter">
+        <div class="letter-inner">
+          <div class="ltr-header">
+            <div class="ltr-for">For My Kindikkuttaa 🤍</div>
+            <div class="ltr-date">March 2026</div>
+          </div>
+
+          <div class="ltr-body">
+            <p class="ltr-opener">My dearest Dilutha,</p>
+
+            <p>
+              I never imagined that the first friend I met in TKM would turn out
+              to be one of my best friends there.
+            </p>
+
+            <p>
+              From 2019 to 2026, we've come such a long way. You were always
+              there beside me through all my highs and lows, ups and downs. You
+              handled my situations in ways I still don't know how to. Not just
+              mine, but for so many others too — you've always been such a
+              strong emotional support.
+            </p>
+
+            <div class="divider">✦ &nbsp;&nbsp; ✦ &nbsp;&nbsp; ✦</div>
+
+            <p>
+              For others, you may be the "strong, independent, powerful" Dilutha
+              who takes on every responsibility without hesitation. But for us,
+              you'll always be our Kindi 🤍
+            </p>
+
+            <p>
+              I still remember that day during SIP when you were so excited to
+              become the team leader, but didn't get the chance just because
+              your phone didn't have WhatsApp. And then seeing your journey till
+              final year — becoming the program committee main, steps main — I
+              was silently watching everything like an introvert in the gallery,
+              feeling so proud of my friend.
+            </p>
+
+            <p>
+              All those times when me and Hannapi used to talk about Favas and
+              Junaidikka, you would always join in with your "unrealistic"
+              expectations about your future partner. And now look at you,
+              everything has fallen into place, and you've finally found your
+              forever after all that "research" 🥹
+            </p>
+
+            <div class="divider">✦ &nbsp;&nbsp; ✦ &nbsp;&nbsp; ✦</div>
+
+            <p>
+              I don't even know how to express what I'm feeling right now. My
+              Kindi is stepping into one of the most beautiful chapters of her
+              life — the one she always dreamed of.
+            </p>
+
+            <p>
+              You were there for me at every moment, especially during my
+              nikkah. I truly, really wish I could be there beside you now. I
+              held onto hope till the very last moment that I'd somehow make it
+              to your big day.
+            </p>
+
+            <p>
+              I'll be waiting to see the most vibrant, cheerful bride in all the
+              photos that are yet to come ✨
+            </p>
+
+            <p class="ltr-closer">
+              Happy Dilsha Mubarak, Kindikkuttaa 🤍
+              <span class="sign">— With all my love, always</span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="petals" id="petals"></div>
+
+    <script>
+      const envWrap = document.getElementById("envWrap");
+      const stage = document.getElementById("stage");
+      const letterPg = document.getElementById("letter-page");
+      const petalsCt = document.getElementById("petals");
+      let opened = false;
+
+      const EMOJIS = ["🌸", "🌺", "🌷", "✨", "💫", "🌼", "💐"];
+
+      function spawnPetals() {
+        for (let i = 0; i < 34; i++) {
+          setTimeout(() => {
+            const el = document.createElement("span");
+            el.className = "petal";
+            el.textContent = EMOJIS[Math.floor(Math.random() * EMOJIS.length)];
+            el.style.left = Math.random() * 100 + "vw";
+            el.style.fontSize = 10 + Math.random() * 20 + "px";
+            const dur = 3.5 + Math.random() * 3.5;
+            el.style.animationDuration = dur + "s";
+            petalsCt.appendChild(el);
+            setTimeout(() => el.remove(), dur * 1000 + 300);
+          }, i * 90);
+        }
+      }
+
+      envWrap.addEventListener("click", () => {
+        if (opened) return;
+        opened = true;
+        envWrap.classList.add("open");
+
+        setTimeout(() => {
+          stage.style.display = "none";
+          letterPg.classList.add("visible");
+          window.scrollTo({ top: 0, behavior: "instant" });
+          spawnPetals();
+        }, 950);
+      });
+    </script>
+  </body>
+</html>
