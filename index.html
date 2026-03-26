@@ -1,489 +1,891 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Happy Dilsha Mubarak, Kindikkuttaa 🤍</title>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Lato:wght@300;400&display=swap"
-      rel="stylesheet"
-    />
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Islamic Wedding Card Collection</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Amiri:ital,wght@0,400;0,700;1,400&family=IM+Fell+English:ital@0;1&family=Cinzel:wght@400;600&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --gold:#c9a84c;--gold2:#e8c96a;--gold3:#a07830;
+  --cream:#fdf8f0;--ivory:#f8f2e4;
+}
+body{
+  background:#1a1208;
+  font-family:'Cormorant Garamond',serif;
+  min-height:100vh;
+  overflow-x:hidden;
+}
+
+/* ─── GALLERY ─── */
+.gallery-bg{
+  background: radial-gradient(ellipse at 50% 20%, #2d1f08 0%, #120d04 60%, #0a0800 100%);
+  min-height:100vh;
+  padding:40px 20px 60px;
+}
+.gallery-title{
+  text-align:center;
+  color:var(--gold2);
+  font-family:'Cinzel',serif;
+  font-size:clamp(22px,4vw,38px);
+  letter-spacing:6px;
+  margin-bottom:6px;
+  animation:fadeDown 1s ease;
+}
+.gallery-sub{
+  text-align:center;
+  color:#a08040;
+  font-family:'Amiri',serif;
+  font-size:18px;
+  letter-spacing:3px;
+  margin-bottom:40px;
+  animation:fadeDown 1.2s ease;
+}
+.gallery-line{
+  display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:40px;
+}
+.gallery-line span{color:var(--gold);font-size:22px;}
+.gallery-line hr{width:100px;border:none;border-top:1px solid #a0804055;}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(200px,1fr));
+  gap:24px;
+  max-width:1100px;
+  margin:0 auto;
+}
+.thumb{
+  aspect-ratio:3/4;
+  border-radius:8px;
+  overflow:hidden;
+  cursor:pointer;
+  position:relative;
+  border:1px solid #a0804033;
+  transition:transform .35s cubic-bezier(.34,1.56,.64,1), box-shadow .35s ease;
+  animation:fadeUp .7s ease both;
+}
+.thumb:nth-child(1){animation-delay:.05s}
+.thumb:nth-child(2){animation-delay:.1s}
+.thumb:nth-child(3){animation-delay:.15s}
+.thumb:nth-child(4){animation-delay:.2s}
+.thumb:nth-child(5){animation-delay:.25s}
+.thumb:nth-child(6){animation-delay:.3s}
+.thumb:nth-child(7){animation-delay:.35s}
+.thumb:nth-child(8){animation-delay:.4s}
+.thumb:nth-child(9){animation-delay:.45s}
+.thumb:nth-child(10){animation-delay:.5s}
+.thumb:hover{
+  transform:translateY(-8px) scale(1.02);
+  box-shadow:0 20px 50px rgba(180,130,30,.25);
+  border-color:#a0804066;
+}
+.thumb svg{width:100%;height:100%;}
+.thumb-label{
+  position:absolute;bottom:0;left:0;right:0;
+  background:linear-gradient(transparent,rgba(10,6,0,.85));
+  color:var(--gold2);
+  font-family:'Cinzel',serif;
+  font-size:10px;letter-spacing:2px;
+  text-align:center;padding:20px 8px 10px;
+  opacity:0;transition:opacity .3s;
+}
+.thumb:hover .thumb-label{opacity:1;}
+
+/* ─── MODAL ─── */
+.modal{
+  display:none;position:fixed;inset:0;z-index:1000;
+  background:rgba(0,0,0,.92);
+  align-items:center;justify-content:center;
+  animation:none;
+}
+.modal.active{display:flex;}
+.modal-inner{
+  position:relative;
+  width:min(420px,90vw);
+  height:min(560px,90vh);
+  animation:popIn .45s cubic-bezier(.34,1.56,.64,1);
+}
+.modal-close{
+  position:fixed;top:24px;right:28px;
+  background:none;border:1px solid #a0804066;
+  color:var(--gold2);font-size:22px;width:42px;height:42px;
+  border-radius:50%;cursor:pointer;z-index:1001;
+  display:flex;align-items:center;justify-content:center;
+  transition:all .25s;font-family:sans-serif;
+}
+.modal-close:hover{background:#a0804033;transform:scale(1.1);}
+.card-view{width:100%;height:100%;border-radius:12px;overflow:hidden;position:relative;}
+
+/* ─── ANIMATIONS ─── */
+@keyframes fadeDown{from{opacity:0;transform:translateY(-20px)}to{opacity:1;transform:none}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:none}}
+@keyframes popIn{from{opacity:0;transform:scale(.7)}to{opacity:1;transform:scale(1)}}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes spinSlow{to{transform:rotate(360deg)}}
+@keyframes spinRev{to{transform:rotate(-360deg)}}
+@keyframes pulse{0%,100%{opacity:.6}50%{opacity:1}}
+@keyframes floatUp{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+@keyframes shimmer{0%{stop-color:#c9a84c}50%{stop-color:#f0d882}100%{stop-color:#c9a84c}}
+@keyframes drawIn{from{stroke-dashoffset:1000}to{stroke-dashoffset:0}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes scaleIn{from{opacity:0;transform:scale(0)}to{opacity:1;transform:scale(1)}}
+@keyframes twinkle{0%,100%{opacity:.3;r:1.5}50%{opacity:1;r:2.5}}
+@keyframes petals{0%{transform:rotate(0deg) scale(1)}50%{transform:rotate(180deg) scale(1.05)}100%{transform:rotate(360deg) scale(1)}}
+@keyframes ripple{0%{r:5;opacity:.8}100%{r:35;opacity:0}}
+@keyframes starRotate{to{transform:rotate(360deg)}}
+@keyframes borderDash{to{stroke-dashoffset:-40}}
+@keyframes glow{0%,100%{filter:drop-shadow(0 0 2px #c9a84c44)}50%{filter:drop-shadow(0 0 8px #c9a84c99)}}
+
+/* ─── CARD THEMES (inline SVG animations) ─── */
+.star-spin{animation:spin 20s linear infinite;transform-origin:center;}
+.star-rev{animation:spinRev 15s linear infinite;transform-origin:center;}
+.float{animation:floatUp 4s ease-in-out infinite;}
+.pulse-anim{animation:pulse 3s ease-in-out infinite;}
+.draw-in{stroke-dasharray:1000;animation:drawIn 3s ease forwards;}
+.glow-anim{animation:glow 2.5s ease-in-out infinite;}
+</style>
+</head>
+<body>
+<div class="gallery-bg">
+  <h1 class="gallery-title">Islamic Wedding Cards</h1>
+  <p class="gallery-sub">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</p>
+  <div class="gallery-line"><hr><span>✦</span><hr></div>
+
+  <div class="grid" id="grid"></div>
+</div>
+
+<div class="modal" id="modal">
+  <button class="modal-close" onclick="closeModal()">✕</button>
+  <div class="modal-inner">
+    <div class="card-view" id="cardView"></div>
+  </div>
+</div>
+
+<script>
+// ══════════════════════════════════════════════
+// 10 UNIQUE CARD GENERATORS
+// ══════════════════════════════════════════════
+
+const cards = [
+
+// ── 1. IVORY & GOLD STAR LATTICE ──────────────────────────────
+{
+  label:"Gold Star Lattice",
+  bg:"linear-gradient(160deg,#fdf6e3 0%,#f5e8c8 100%)",
+  render:(id,small)=>`
+  <svg viewBox="0 0 400 533" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" style="position:absolute;top:0;left:0">
+  <defs>
+    <radialGradient id="g1${id}" cx="50%" cy="40%"><stop offset="0%" stop-color="#fdf6e3"/><stop offset="100%" stop-color="#ede0b8"/></radialGradient>
+    <pattern id="sp${id}" width="40" height="40" patternUnits="userSpaceOnUse">
+      <polygon points="20,2 23,14 36,14 26,22 30,34 20,26 10,34 14,22 4,14 17,14" fill="#c9a84c" opacity=".1"/>
+    </pattern>
+    <filter id="soft${id}"><feGaussianBlur stdDeviation="1"/></filter>
+  </defs>
+  <rect width="400" height="533" fill="url(#g1${id})"/>
+  <rect width="400" height="533" fill="url(#sp${id})"/>
+  <!-- Animated outer border -->
+  <rect x="14" y="14" width="372" height="505" fill="none" stroke="#c9a84c" stroke-width="1.5" opacity=".5" rx="4" stroke-dasharray="40 8" style="animation:borderDash 6s linear infinite"/>
+  <rect x="22" y="22" width="356" height="489" fill="none" stroke="#c9a84c" stroke-width=".5" opacity=".3" rx="3"/>
+  <!-- Pointed arch top -->
+  <path d="M80,22 L80,160 Q80,80 200,70 Q320,80 320,160 L320,22 Z" fill="#c9a84c" opacity=".05"/>
+  <path d="M80,22 L80,160 Q80,80 200,70 Q320,80 320,160 L320,22" fill="none" stroke="#c9a84c" stroke-width="1.5" opacity=".5" class="draw-in"/>
+  <!-- Rotating star mandala -->
+  <g transform="translate(200,130)" class="glow-anim">
+    <g class="star-spin">
+      <polygon points="0,-48 11,-11 48,0 11,11 0,48 -11,11 -48,0 -11,-11" fill="none" stroke="#c9a84c" stroke-width="1" opacity=".3"/>
+      <polygon points="0,-34 8,-8 34,0 8,8 0,34 -8,8 -34,0 -8,-8" fill="none" stroke="#c9a84c" stroke-width="1.2" opacity=".5"/>
+    </g>
+    <g class="star-rev">
+      <polygon points="0,-24 7,-7 24,0 7,7 0,24 -7,7 -24,0 -7,-7" fill="#c9a84c" opacity=".25"/>
+    </g>
+    <circle r="8" fill="#c9a84c" opacity=".7" class="pulse-anim"/>
+    <circle r="3" fill="#c9a84c"/>
+  </g>
+  <!-- Corner gems -->
+  <g opacity=".6">
+    <polygon points="40,40 46,52 40,64 34,52" fill="#c9a84c" opacity=".4"/>
+    <circle cx="40" cy="52" r="4" fill="#c9a84c"/>
+    <polygon points="360,40 366,52 360,64 354,52" fill="#c9a84c" opacity=".4"/>
+    <circle cx="360" cy="52" r="4" fill="#c9a84c"/>
+    <polygon points="40,480 46,492 40,504 34,492" fill="#c9a84c" opacity=".4"/>
+    <circle cx="40" cy="492" r="4" fill="#c9a84c"/>
+    <polygon points="360,480 366,492 360,504 354,492" fill="#c9a84c" opacity=".4"/>
+    <circle cx="360" cy="492" r="4" fill="#c9a84c"/>
+  </g>
+  <!-- Dividers -->
+  <line x1="50" y1="290" x2="350" y2="290" stroke="#c9a84c" stroke-width=".5" opacity=".35"/>
+  <polygon points="200,286 204,290 200,294 196,290" fill="#c9a84c" opacity=".7"/>
+  <line x1="50" y1="430" x2="350" y2="430" stroke="#c9a84c" stroke-width=".5" opacity=".35"/>
+  <!-- Twinkling stars -->
+  ${[...Array(12)].map((_,i)=>{const x=40+Math.random()*320,y=190+Math.random()*350,d=Math.random()*3;return`<circle cx="${x.toFixed(0)}" cy="${y.toFixed(0)}" r="1.5" fill="#c9a84c" style="animation:twinkle ${2+d}s ease-in-out infinite;animation-delay:${d}s"/>`}).join('')}
+  <!-- Text -->
+  <text x="200" y="232" text-anchor="middle" font-family="Amiri,serif" font-size="${small?14:18}" fill="#7a5a1a" opacity=".7">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</text>
+  <text x="200" y="320" text-anchor="middle" font-family="Playfair Display,serif" font-size="${small?18:28}" font-weight="700" fill="#5a3a0a" letter-spacing="1">Aamir</text>
+  <text x="200" y="348" text-anchor="middle" font-family="Cormorant Garamond,serif" font-size="${small?10:14}" fill="#8a6a2a" letter-spacing="4">— ♦ —</text>
+  <text x="200" y="376" text-anchor="middle" font-family="Playfair Display,serif" font-size="${small?18:28}" font-weight="700" fill="#5a3a0a" letter-spacing="1">Layla</text>
+  <text x="200" y="410" text-anchor="middle" font-family="Cormorant Garamond,serif" font-size="${small?10:13}" fill="#8a6a2a" letter-spacing="3" font-style="italic">United in Love &amp; Faith</text>
+  <text x="200" y="455" text-anchor="middle" font-family="Cinzel,serif" font-size="${small?8:11}" fill="#a08040" letter-spacing="3">SATURDAY · 15 JUNE 2025</text>
+  <text x="200" y="500" text-anchor="middle" font-family="Amiri,serif" font-size="${small?14:18}" fill="#8a6a2a" opacity=".5">☽ ✦ ☾</text>
+  </svg>`
+},
+
+// ── 2. EMERALD MOROCCAN TILE ──────────────────────────────────
+{
+  label:"Moroccan Emerald",
+  bg:"linear-gradient(150deg,#f0faf6,#daf0e8)",
+  render:(id,small)=>`
+  <svg viewBox="0 0 400 533" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" style="position:absolute;top:0;left:0">
+  <defs>
+    <radialGradient id="g2${id}" cx="50%" cy="50%"><stop offset="0%" stop-color="#f4fdf8"/><stop offset="100%" stop-color="#d8f0e4"/></radialGradient>
+    <pattern id="zellige${id}" x="0" y="0" width="50" height="50" patternUnits="userSpaceOnUse">
+      <path d="M25,0 L50,25 L25,50 L0,25 Z" fill="none" stroke="#1a7a58" stroke-width=".4" opacity=".18"/>
+      <circle cx="25" cy="25" r="8" fill="none" stroke="#1a7a58" stroke-width=".3" opacity=".1"/>
+      <polygon points="25,17 27.5,22.5 33,22.5 29,26 30.5,32 25,28.5 19.5,32 21,26 17,22.5 22.5,22.5" fill="#1a7a58" opacity=".06"/>
+    </pattern>
+  </defs>
+  <rect width="400" height="533" fill="url(#g2${id})"/>
+  <rect width="400" height="533" fill="url(#zellige${id})"/>
+  <!-- Emerald header band -->
+  <rect x="0" y="0" width="400" height="80" fill="#1a7a58" opacity=".1"/>
+  <rect x="0" y="453" width="400" height="80" fill="#1a7a58" opacity=".1"/>
+  <!-- Twin horseshoe arches -->
+  <path d="M40,80 L40,170 Q40,100 100,95 Q160,100 160,170 L160,80" fill="none" stroke="#1a7a58" stroke-width="1.5" opacity=".4" class="draw-in"/>
+  <path d="M240,80 L240,170 Q240,100 300,95 Q360,100 360,170 L360,80" fill="none" stroke="#1a7a58" stroke-width="1.5" opacity=".4" class="draw-in" style="animation-delay:.5s"/>
+  <path d="M40,80 L40,170 Q40,100 100,95 Q160,100 160,170 L160,80 Z" fill="#1a7a58" opacity=".04"/>
+  <path d="M240,80 L240,170 Q240,100 300,95 Q360,100 360,170 L360,80 Z" fill="#1a7a58" opacity=".04"/>
+  <!-- Star in each arch -->
+  <g transform="translate(100,135)">
+    <g class="star-spin" style="animation-duration:18s">
+      <polygon points="0,-28 6.5,-6.5 28,0 6.5,6.5 0,28 -6.5,6.5 -28,0 -6.5,-6.5" fill="none" stroke="#1a7a58" stroke-width="1" opacity=".4"/>
+    </g>
+    <circle r="6" fill="#1a7a58" opacity=".5" class="pulse-anim"/>
+  </g>
+  <g transform="translate(300,135)">
+    <g class="star-spin" style="animation-duration:22s;animation-direction:reverse">
+      <polygon points="0,-28 6.5,-6.5 28,0 6.5,6.5 0,28 -6.5,6.5 -28,0 -6.5,-6.5" fill="none" stroke="#1a7a58" stroke-width="1" opacity=".4"/>
+    </g>
+    <circle r="6" fill="#1a7a58" opacity=".5" class="pulse-anim" style="animation-delay:.8s"/>
+  </g>
+  <!-- Ornate border -->
+  <rect x="12" y="12" width="376" height="509" fill="none" stroke="#1a7a58" stroke-width="1" opacity=".25" rx="2"/>
+  <!-- Tilework columns -->
+  <rect x="12" y="12" width="28" height="509" fill="#1a7a58" opacity=".04"/>
+  <rect x="360" y="12" width="28" height="509" fill="#1a7a58" opacity=".04"/>
+  <!-- Arabesque vines -->
+  <g opacity=".2" fill="none" stroke="#1a7a58" stroke-width=".8">
+    <path d="M26,200 Q40,185 35,210 Q30,230 45,220 Q60,210 55,235 Q50,255 65,245 Q80,235 78,258"/>
+    <path d="M374,200 Q360,185 365,210 Q370,230 355,220 Q340,210 345,235 Q350,255 335,245 Q320,235 322,258"/>
+  </g>
+  <!-- Center divider with star -->
+  <line x1="50" y1="210" x2="350" y2="210" stroke="#1a7a58" stroke-width=".5" opacity=".3"/>
+  <polygon points="200,204 204,210 200,216 196,210" fill="#1a7a58" opacity=".5"/>
+  <line x1="50" y1="420" x2="350" y2="420" stroke="#1a7a58" stroke-width=".5" opacity=".3"/>
+  <!-- Text -->
+  <text x="200" y="252" text-anchor="middle" font-family="Amiri,serif" font-size="${small?13:17}" fill="#1a5a40" opacity=".7">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</text>
+  <text x="200" y="295" text-anchor="middle" font-family="IM Fell English,serif" font-size="${small?20:32}" fill="#0d4a30" letter-spacing="2">Omar</text>
+  <text x="200" y="322" text-anchor="middle" font-family="Cormorant Garamond,serif" font-size="${small?11:15}" fill="#2a7a58" letter-spacing="4">&amp;</text>
+  <text x="200" y="360" text-anchor="middle" font-family="IM Fell English,serif" font-size="${small?20:32}" fill="#0d4a30" letter-spacing="2">Fatima</text>
+  <text x="200" y="392" text-anchor="middle" font-family="Cormorant Garamond,serif" font-size="${small?9:12}" fill="#2a7a58" letter-spacing="3" font-style="italic">Walimah · Friday Eve</text>
+  <text x="200" y="440" text-anchor="middle" font-family="Cinzel,serif" font-size="${small?7:10}" fill="#3a8a68" letter-spacing="4">12 · APRIL · 2025</text>
+  <text x="200" y="480" text-anchor="middle" font-family="Amiri,serif" font-size="${small?14:20}" fill="#1a7a58" opacity=".4">✦ الحمد لله ✦</text>
+  </svg>`
+},
+
+// ── 3. BLUSH ROSE PETAL RAIN ──────────────────────────────────
+{
+  label:"Blush Rose Rain",
+  bg:"linear-gradient(155deg,#fdf4f4,#f0e0e0)",
+  render:(id,small)=>`
+  <svg viewBox="0 0 400 533" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" style="position:absolute;top:0;left:0">
+  <defs>
+    <radialGradient id="g3${id}" cx="50%" cy="50%"><stop offset="0%" stop-color="#fefafa"/><stop offset="100%" stop-color="#f5e0e0"/></radialGradient>
     <style>
-      :root {
-        --cream: #fdf6ee;
-        --ink: #2c1f14;
-        --gold: #b8860b;
-        --rose: #c47a6a;
-        --envelope-front: #f0d9c0;
-        --envelope-back: #e8cba8;
-        --flap: #d4b896;
-        --shadow: rgba(44, 31, 20, 0.2);
-      }
-
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-
-      body {
-        background: linear-gradient(
-          135deg,
-          #f7ede2 0%,
-          #ede0d4 50%,
-          #e8d5c4 100%
-        );
-        min-height: 100vh;
-        font-family: "Lato", sans-serif;
-        overflow-x: hidden;
-      }
-
-      body::before {
-        content: "";
-        position: fixed;
-        inset: 0;
-        background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23b8860b' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/svg%3E");
-        pointer-events: none;
-        z-index: 0;
-      }
-
-      /* ════════════════════════════
-     ENVELOPE STAGE
-  ════════════════════════════ */
-      #stage {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        min-height: 100vh;
-        position: relative;
-        z-index: 1;
-      }
-
-      .env-wrap {
-        position: relative;
-        width: min(480px, 92vw);
-        height: 320px;
-        perspective: 1400px;
-        cursor: pointer;
-      }
-
-      .env-body {
-        position: absolute;
-        inset: 0;
-        background: linear-gradient(
-          160deg,
-          var(--envelope-front) 0%,
-          var(--envelope-back) 100%
-        );
-        border-radius: 4px 4px 10px 10px;
-        box-shadow:
-          0 16px 50px var(--shadow),
-          0 4px 16px rgba(0, 0, 0, 0.08);
-        overflow: hidden;
-      }
-      .env-body::before {
-        content: "";
-        position: absolute;
-        inset: 0;
-        background:
-          linear-gradient(
-            135deg,
-            transparent calc(50% - 1px),
-            rgba(180, 140, 90, 0.2) calc(50% - 1px),
-            rgba(180, 140, 90, 0.2) calc(50% + 1px),
-            transparent calc(50% + 1px)
-          ),
-          linear-gradient(
-            225deg,
-            transparent calc(50% - 1px),
-            rgba(180, 140, 90, 0.2) calc(50% - 1px),
-            rgba(180, 140, 90, 0.2) calc(50% + 1px),
-            transparent calc(50% + 1px)
-          );
-      }
-
-      .env-flap {
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        height: 55%;
-        transform-origin: top center;
-        transform-style: preserve-3d;
-        z-index: 10;
-      }
-      .env-flap-inner {
-        position: absolute;
-        inset: 0;
-        background: linear-gradient(
-          175deg,
-          var(--flap) 0%,
-          var(--envelope-front) 100%
-        );
-        clip-path: polygon(0 0, 100% 0, 50% 100%);
-        backface-visibility: hidden;
-      }
-      .env-flap-inner::after {
-        content: "";
-        position: absolute;
-        inset: 0;
-        background: linear-gradient(
-          180deg,
-          rgba(255, 255, 255, 0.14) 0%,
-          transparent 55%
-        );
-        clip-path: polygon(0 0, 100% 0, 50% 100%);
-      }
-
-      .seal {
-        position: absolute;
-        bottom: 30px;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 56px;
-        height: 56px;
-        background: radial-gradient(circle at 38% 38%, #d4415a, #8b1a2a);
-        border-radius: 50%;
-        box-shadow:
-          0 3px 10px rgba(139, 26, 42, 0.45),
-          inset 0 1px 3px rgba(255, 255, 255, 0.15);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 24px;
-        z-index: 6;
-      }
-
-      .tap-hint {
-        position: absolute;
-        bottom: -44px;
-        left: 50%;
-        transform: translateX(-50%);
-        font-size: 11px;
-        letter-spacing: 3px;
-        text-transform: uppercase;
-        color: var(--rose);
-        white-space: nowrap;
-        opacity: 0.75;
-        animation: pulse 2.2s ease-in-out infinite;
-      }
-      @keyframes pulse {
-        0%,
-        100% {
-          opacity: 0.4;
-        }
-        50% {
-          opacity: 0.9;
-        }
-      }
-
-      /* Open animations */
-      .env-wrap.open .env-flap {
-        animation: flap-open 0.75s cubic-bezier(0.4, 0, 0.2, 1) 0.1s forwards;
-      }
-      @keyframes flap-open {
-        to {
-          transform: rotateX(-180deg);
-        }
-      }
-
-      .env-wrap.open .seal {
-        animation: seal-out 0.3s ease 0.1s forwards;
-      }
-      @keyframes seal-out {
-        to {
-          opacity: 0;
-          transform: translateX(-50%) scale(0.5);
-        }
-      }
-
-      .env-wrap.open .tap-hint {
-        visibility: hidden;
-      }
-
-      /* ════════════════════════════
-     LETTER PAGE
-  ════════════════════════════ */
-      #letter-page {
-        display: none;
-        position: relative;
-        z-index: 1;
-        padding: 48px 20px 100px;
-        justify-content: center;
-      }
-
-      #letter-page.visible {
-        display: flex;
-      }
-
-      .letter {
-        width: min(640px, 96vw);
-        background: var(--cream);
-        border-radius: 4px;
-        box-shadow:
-          0 10px 60px rgba(44, 31, 20, 0.14),
-          0 2px 12px rgba(0, 0, 0, 0.06);
-        padding: clamp(40px, 7vw, 72px) clamp(32px, 7vw, 68px)
-          clamp(52px, 8vw, 80px);
-        position: relative;
-        opacity: 0;
-        transform: translateY(48px);
-        animation: letter-enter 1s cubic-bezier(0.22, 1, 0.36, 1) 0.15s forwards;
-      }
-
-      @keyframes letter-enter {
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-
-      .letter::after {
-        content: "";
-        position: absolute;
-        inset: 0;
-        background-image: repeating-linear-gradient(
-          transparent,
-          transparent 31px,
-          rgba(180, 140, 90, 0.07) 31px,
-          rgba(180, 140, 90, 0.07) 32px
-        );
-        border-radius: 4px;
-        pointer-events: none;
-      }
-
-      .letter-inner {
-        position: relative;
-        z-index: 1;
-      }
-
-      .ltr-header {
-        text-align: center;
-        margin-bottom: 32px;
-        padding-bottom: 24px;
-        border-bottom: 1px solid rgba(184, 134, 11, 0.18);
-      }
-      .ltr-for {
-        font-family: "Cormorant Garamond", serif;
-        font-size: clamp(13px, 2vw, 15px);
-        letter-spacing: 4px;
-        text-transform: uppercase;
-        color: var(--gold);
-        margin-bottom: 7px;
-      }
-      .ltr-date {
-        font-size: 10px;
-        letter-spacing: 2.5px;
-        text-transform: uppercase;
-        color: rgba(44, 31, 20, 0.35);
-      }
-
-      .ltr-body {
-        font-family: "Cormorant Garamond", serif;
-        font-size: clamp(17px, 2.6vw, 19px);
-        font-weight: 300;
-        line-height: 1.95;
-        color: var(--ink);
-      }
-      .ltr-body p {
-        margin-bottom: 20px;
-        text-align: justify;
-        hyphens: auto;
-      }
-      .ltr-opener {
-        font-style: italic !important;
-        font-size: clamp(18px, 3vw, 22px) !important;
-        font-weight: 400 !important;
-        color: var(--rose) !important;
-        margin-bottom: 24px !important;
-      }
-      .divider {
-        text-align: center;
-        color: var(--gold);
-        font-size: 11px;
-        letter-spacing: 10px;
-        opacity: 0.4;
-        margin: 4px 0 22px;
-      }
-      .ltr-closer {
-        margin-top: 32px !important;
-        text-align: right !important;
-        font-style: italic;
-        font-size: clamp(17px, 2.6vw, 19px) !important;
-        color: var(--rose) !important;
-        line-height: 1.75;
-      }
-      .sign {
-        display: block;
-        font-family: "Playfair Display", serif;
-        font-style: normal;
-        font-size: 11px;
-        letter-spacing: 2.5px;
-        text-transform: uppercase;
-        color: rgba(44, 31, 20, 0.35);
-        margin-top: 8px;
-      }
-
-      /* ════════════════════════════
-     PETALS
-  ════════════════════════════ */
-      .petals {
-        position: fixed;
-        inset: 0;
-        pointer-events: none;
-        z-index: 200;
-      }
-      .petal {
-        position: absolute;
-        top: -24px;
-        opacity: 0;
-        animation: petal-fall linear forwards;
-      }
-      @keyframes petal-fall {
-        0% {
-          opacity: 0;
-          transform: translateY(0) rotate(0deg);
-        }
-        8% {
-          opacity: 0.85;
-        }
-        90% {
-          opacity: 0.5;
-        }
-        100% {
-          opacity: 0;
-          transform: translateY(110vh) rotate(700deg);
-        }
-      }
+      .petal3{animation:petals 8s linear infinite;transform-origin:center;}
+      @keyframes petalFall${id}{0%{transform:translateY(-30px) rotate(0deg);opacity:0}10%{opacity:.7}90%{opacity:.4}100%{transform:translateY(560px) rotate(360deg);opacity:0}}
     </style>
-  </head>
-  <body>
-    <div id="stage">
-      <div class="env-wrap" id="envWrap">
-        <div class="env-flap"><div class="env-flap-inner"></div></div>
-        <div class="env-body"></div>
-        <div class="seal">🌸</div>
-        <div class="tap-hint">tap to open</div>
-      </div>
-    </div>
+  </defs>
+  <rect width="400" height="533" fill="url(#g3${id})"/>
+  <!-- Falling petals -->
+  ${[...Array(16)].map((_,i)=>{
+    const x=20+Math.random()*360,dur=4+Math.random()*5,delay=Math.random()*6,size=4+Math.random()*8;
+    return`<ellipse cx="${x.toFixed(0)}" cy="0" rx="${size.toFixed(1)}" ry="${(size*.6).toFixed(1)}" fill="#c87080" opacity=".3" style="animation:petalFall${id} ${dur.toFixed(1)}s linear ${delay.toFixed(1)}s infinite" transform="rotate(${Math.random()*180})"/>`;
+  }).join('')}
+  <!-- Ornate border -->
+  <rect x="14" y="14" width="372" height="505" fill="none" stroke="#c87080" stroke-width="1" opacity=".3" rx="6"/>
+  <rect x="20" y="20" width="360" height="493" fill="none" stroke="#d89098" stroke-width=".4" opacity=".2" rx="4"/>
+  <!-- Floral arch top -->
+  <path d="M70,20 L70,155 Q70,75 200,68 Q330,75 330,155 L330,20" fill="none" stroke="#c87080" stroke-width="1.5" opacity=".4" class="draw-in"/>
+  <path d="M70,20 L70,155 Q70,75 200,68 Q330,75 330,155 L330,20 Z" fill="#c87080" opacity=".04"/>
+  <!-- Rotating rose mandala -->
+  <g transform="translate(200,125)">
+    <g class="petal3">
+      <ellipse ry="45" rx="12" fill="#c87080" opacity=".12"/>
+      <ellipse ry="45" rx="12" fill="#c87080" opacity=".12" transform="rotate(45)"/>
+      <ellipse ry="45" rx="12" fill="#c87080" opacity=".12" transform="rotate(90)"/>
+      <ellipse ry="45" rx="12" fill="#c87080" opacity=".12" transform="rotate(135)"/>
+    </g>
+    <g class="star-rev" style="animation-duration:12s">
+      <ellipse ry="30" rx="8" fill="#c87080" opacity=".18"/>
+      <ellipse ry="30" rx="8" fill="#c87080" opacity=".18" transform="rotate(45)"/>
+      <ellipse ry="30" rx="8" fill="#c87080" opacity=".18" transform="rotate(90)"/>
+      <ellipse ry="30" rx="8" fill="#c87080" opacity=".18" transform="rotate(135)"/>
+    </g>
+    <circle r="14" fill="#c87080" opacity=".2"/>
+    <circle r="7" fill="#c87080" opacity=".6" class="pulse-anim"/>
+    <circle r="3" fill="#e8a0a8"/>
+  </g>
+  <!-- Corner floral sprays -->
+  <g opacity=".35" fill="#c87080">
+    <circle cx="55" cy="42" r="7"/><circle cx="66" cy="30" r="5"/><circle cx="44" cy="32" r="4.5"/>
+    <circle cx="78" cy="46" r="3.5"/><circle cx="42" cy="50" r="3"/>
+    <ellipse cx="62" cy="54" rx="6" ry="3" transform="rotate(-30,62,54)" fill="#80b870"/>
+    <circle cx="345" cy="42" r="7"/><circle cx="334" cy="30" r="5"/><circle cx="356" cy="32" r="4.5"/>
+    <circle cx="322" cy="46" r="3.5"/><circle cx="358" cy="50" r="3"/>
+    <ellipse cx="338" cy="54" rx="6" ry="3" transform="rotate(30,338,54)" fill="#80b870"/>
+    <circle cx="55" cy="490" r="6"/><circle cx="68" cy="502" r="4.5"/><circle cx="42" cy="504" r="4"/>
+    <circle cx="345" cy="490" r="6"/><circle cx="332" cy="502" r="4.5"/><circle cx="358" cy="504" r="4"/>
+  </g>
+  <!-- Scalloped divider -->
+  <path d="M50,300 Q60,290 70,300 Q80,290 90,300 Q100,290 110,300 Q120,290 130,300 Q140,290 150,300 Q160,290 170,300 Q180,290 190,300 Q200,290 210,300 Q220,290 230,300 Q240,290 250,300 Q260,290 270,300 Q280,290 290,300 Q300,290 310,300 Q320,290 330,300 Q340,290 350,300" fill="none" stroke="#c87080" stroke-width=".8" opacity=".3"/>
+  <!-- Text -->
+  <text x="200" y="250" text-anchor="middle" font-family="Amiri,serif" font-size="${small?12:16}" fill="#8a3a4a" opacity=".65">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</text>
+  <text x="200" y="328" text-anchor="middle" font-family="Playfair Display,serif" font-size="${small?18:28}" font-style="italic" fill="#6a2030" letter-spacing="2">Yusuf</text>
+  <text x="200" y="352" text-anchor="middle" font-family="Cormorant Garamond,serif" font-size="${small?11:15}" fill="#b07888" letter-spacing="4">❧</text>
+  <text x="200" y="382" text-anchor="middle" font-family="Playfair Display,serif" font-size="${small?18:28}" font-style="italic" fill="#6a2030" letter-spacing="2">Maryam</text>
+  <text x="200" y="415" text-anchor="middle" font-family="Cormorant Garamond,serif" font-size="${small?9:12}" fill="#9a5868" letter-spacing="3" font-style="italic">With Blessings &amp; Joy</text>
+  <text x="200" y="450" text-anchor="middle" font-family="Cinzel,serif" font-size="${small?7:10}" fill="#b07080" letter-spacing="3">14 · 06 · 2025</text>
+  <text x="200" y="500" text-anchor="middle" font-family="Amiri,serif" font-size="${small?13:18}" fill="#c87080" opacity=".45">✿ ✿ ✿</text>
+  </svg>`
+},
 
-    <div id="letter-page">
-      <div class="letter">
-        <div class="letter-inner">
-          <div class="ltr-header">
-            <div class="ltr-for">For My Kindikkuttaa 🤍</div>
-            <div class="ltr-date">March 2026</div>
-          </div>
+// ── 4. SAPPHIRE MOSQUE SKYLINE ────────────────────────────────
+{
+  label:"Sapphire Skyline",
+  bg:"linear-gradient(155deg,#f2f6fe,#dce8f8)",
+  render:(id,small)=>`
+  <svg viewBox="0 0 400 533" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" style="position:absolute;top:0;left:0">
+  <defs>
+    <radialGradient id="g4${id}" cx="50%" cy="30%"><stop offset="0%" stop-color="#f8fbff"/><stop offset="100%" stop-color="#d5e5f8"/></radialGradient>
+    <pattern id="grid4${id}" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+      <rect width="20" height="20" fill="none" stroke="#2040a0" stroke-width=".3" opacity=".08"/>
+    </pattern>
+  </defs>
+  <rect width="400" height="533" fill="url(#g4${id})"/>
+  <rect width="400" height="533" fill="url(#grid4${id})"/>
+  <!-- Night sky stars -->
+  ${[...Array(24)].map((_,i)=>{const x=10+Math.random()*380,y=10+Math.random()*200,d=Math.random()*4;return`<circle cx="${x.toFixed(0)}" cy="${y.toFixed(0)}" r="1.2" fill="#2040a0" style="animation:twinkle ${2+d}s ease-in-out infinite;animation-delay:${d}s" opacity=".6"/>`;}).join('')}
+  <!-- Moon -->
+  <path d="M348,55 Q336,28 354,18 Q342,18 342,30 Q342,46 348,55Z" fill="#2040a0" opacity=".35" class="pulse-anim"/>
+  <!-- Mosque silhouette -->
+  <g opacity=".18" fill="#1030a0">
+    <!-- Main dome -->
+    <path d="M120,230 L120,185 Q120,130 200,125 Q280,130 280,185 L280,230Z"/>
+    <!-- Central spire -->
+    <rect x="196" y="100" width="8" height="30" rx="2"/>
+    <polygon points="200,95 196,108 204,108"/>
+    <!-- Moon on spire -->
+    <path d="M197,93 Q195,88 200,86 Q198,86 198,89 Q198,92 200,93Z"/>
+    <!-- Left minaret -->
+    <rect x="55" y="170" width="18" height="65" rx="3"/>
+    <polygon points="64,160 57,178 71,178"/>
+    <rect x="59" y="185" width="10" height="8" rx="1" fill="white" opacity=".4"/>
+    <rect x="59" y="205" width="10" height="8" rx="1" fill="white" opacity=".4"/>
+    <rect x="59" y="225" width="10" height="6" rx="1" fill="white" opacity=".4"/>
+    <!-- Right minaret -->
+    <rect x="327" y="170" width="18" height="65" rx="3"/>
+    <polygon points="336,160 329,178 343,178"/>
+    <rect x="331" y="185" width="10" height="8" rx="1" fill="white" opacity=".4"/>
+    <rect x="331" y="205" width="10" height="8" rx="1" fill="white" opacity=".4"/>
+    <rect x="331" y="225" width="10" height="6" rx="1" fill="white" opacity=".4"/>
+    <!-- Ground base -->
+    <rect x="40" y="228" width="320" height="10" rx="2"/>
+  </g>
+  <!-- Animated ripple from dome -->
+  <g transform="translate(200,170)" opacity=".15">
+    <circle r="5" fill="none" stroke="#2040a0" stroke-width="1" style="animation:ripple 3s ease-out infinite"/>
+    <circle r="5" fill="none" stroke="#2040a0" stroke-width="1" style="animation:ripple 3s ease-out 1s infinite"/>
+    <circle r="5" fill="none" stroke="#2040a0" stroke-width="1" style="animation:ripple 3s ease-out 2s infinite"/>
+  </g>
+  <!-- Geometric star window -->
+  <g transform="translate(200,175)" opacity=".35">
+    <g class="star-spin" style="animation-duration:25s">
+      <polygon points="0,-32 7.5,-7.5 32,0 7.5,7.5 0,32 -7.5,7.5 -32,0 -7.5,-7.5" fill="none" stroke="#2040a0" stroke-width="1"/>
+    </g>
+    <circle r="6" fill="#2040a0" opacity=".5" class="pulse-anim"/>
+  </g>
+  <!-- Ornate border -->
+  <rect x="12" y="12" width="376" height="509" fill="none" stroke="#2040a0" stroke-width="1" opacity=".22" rx="3"/>
+  <!-- Horizontal bands -->
+  <rect x="12" y="12" width="376" height="6" fill="#2040a0" opacity=".12" rx="2"/>
+  <rect x="12" y="515" width="376" height="6" fill="#2040a0" opacity=".12" rx="2"/>
+  <!-- Divider -->
+  <line x1="50" y1="300" x2="350" y2="300" stroke="#2040a0" stroke-width=".5" opacity=".3"/>
+  <polygon points="200,295 205,300 200,305 195,300" fill="#2040a0" opacity=".5"/>
+  <!-- Text -->
+  <text x="200" y="256" text-anchor="middle" font-family="Amiri,serif" font-size="${small?13:17}" fill="#1030a0" opacity=".6">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</text>
+  <text x="200" y="330" text-anchor="middle" font-family="Cinzel,serif" font-size="${small?18:27}" fill="#0a2080" letter-spacing="3">Ibrahim</text>
+  <text x="200" y="358" text-anchor="middle" font-family="Cormorant Garamond,serif" font-size="${small?11:15}" fill="#3060c0" letter-spacing="3">&amp;</text>
+  <text x="200" y="390" text-anchor="middle" font-family="Cinzel,serif" font-size="${small?18:27}" fill="#0a2080" letter-spacing="3">Aisha</text>
+  <text x="200" y="420" text-anchor="middle" font-family="Cormorant Garamond,serif" font-size="${small?9:12}" fill="#3060a0" letter-spacing="3" font-style="italic">Nikah Ceremony</text>
+  <text x="200" y="455" text-anchor="middle" font-family="Cinzel,serif" font-size="${small?7:9}" fill="#4070b0" letter-spacing="4">SATURDAY · 22 MARCH 2025</text>
+  <text x="200" y="500" text-anchor="middle" font-family="Amiri,serif" font-size="${small?13:18}" fill="#2040a0" opacity=".4">✦ ماشاء الله ✦</text>
+  </svg>`
+},
 
-          <div class="ltr-body">
-            <p class="ltr-opener">My dearest Dilutha,</p>
+// ── 5. AMETHYST MANDALA ───────────────────────────────────────
+{
+  label:"Amethyst Mandala",
+  bg:"linear-gradient(155deg,#f8f3fd,#ede0f8)",
+  render:(id,small)=>`
+  <svg viewBox="0 0 400 533" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" style="position:absolute;top:0;left:0">
+  <defs>
+    <radialGradient id="g5${id}" cx="50%" cy="45%"><stop offset="0%" stop-color="#fdf8ff"/><stop offset="100%" stop-color="#e8d5f8"/></radialGradient>
+    <pattern id="dots5${id}" x="0" y="0" width="16" height="16" patternUnits="userSpaceOnUse">
+      <circle cx="8" cy="8" r="1" fill="#7030c0" opacity=".09"/>
+    </pattern>
+  </defs>
+  <rect width="400" height="533" fill="url(#g5${id})"/>
+  <rect width="400" height="533" fill="url(#dots5${id})"/>
+  <!-- Border with animated dash -->
+  <rect x="12" y="12" width="376" height="509" fill="none" stroke="#9050d0" stroke-width="1.2" opacity=".3" rx="5" stroke-dasharray="30 10" style="animation:borderDash 8s linear infinite"/>
+  <rect x="20" y="20" width="360" height="493" fill="none" stroke="#9050d0" stroke-width=".4" opacity=".2" rx="4"/>
+  <!-- Corner mandalas -->
+  <g opacity=".35">
+    <g transform="translate(38,38)">
+      <circle r="18" fill="none" stroke="#9050d0" stroke-width=".6"/>
+      <g class="star-spin" style="animation-duration:20s">
+        <polygon points="0,-14 3,-3 14,0 3,3 0,14 -3,3 -14,0 -3,-3" fill="none" stroke="#9050d0" stroke-width=".8"/>
+      </g>
+      <circle r="4" fill="#9050d0" opacity=".5"/>
+    </g>
+    <g transform="translate(362,38)">
+      <circle r="18" fill="none" stroke="#9050d0" stroke-width=".6"/>
+      <g class="star-rev" style="animation-duration:20s">
+        <polygon points="0,-14 3,-3 14,0 3,3 0,14 -3,3 -14,0 -3,-3" fill="none" stroke="#9050d0" stroke-width=".8"/>
+      </g>
+      <circle r="4" fill="#9050d0" opacity=".5"/>
+    </g>
+    <g transform="translate(38,495)">
+      <circle r="18" fill="none" stroke="#9050d0" stroke-width=".6"/>
+      <g class="star-spin" style="animation-duration:20s">
+        <polygon points="0,-14 3,-3 14,0 3,3 0,14 -3,3 -14,0 -3,-3" fill="none" stroke="#9050d0" stroke-width=".8"/>
+      </g>
+      <circle r="4" fill="#9050d0" opacity=".5"/>
+    </g>
+    <g transform="translate(362,495)">
+      <circle r="18" fill="none" stroke="#9050d0" stroke-width=".6"/>
+      <g class="star-rev" style="animation-duration:20s">
+        <polygon points="0,-14 3,-3 14,0 3,3 0,14 -3,3 -14,0 -3,-3" fill="none" stroke="#9050d0" stroke-width=".8"/>
+      </g>
+      <circle r="4" fill="#9050d0" opacity=".5"/>
+    </g>
+  </g>
+  <!-- Main mandala -->
+  <g transform="translate(200,140)">
+    <g class="star-spin" style="animation-duration:30s">
+      <circle r="70" fill="none" stroke="#9050d0" stroke-width=".6" opacity=".2"/>
+      <polygon points="0,-65 15,-15 65,0 15,15 0,65 -15,15 -65,0 -15,-15" fill="none" stroke="#9050d0" stroke-width=".8" opacity=".3"/>
+    </g>
+    <g class="star-rev" style="animation-duration:20s">
+      <circle r="50" fill="none" stroke="#9050d0" stroke-width=".6" opacity=".25"/>
+      <g fill="#9050d0" opacity=".15">
+        <ellipse ry="46" rx="10" transform="rotate(0)"/>
+        <ellipse ry="46" rx="10" transform="rotate(30)"/>
+        <ellipse ry="46" rx="10" transform="rotate(60)"/>
+        <ellipse ry="46" rx="10" transform="rotate(90)"/>
+        <ellipse ry="46" rx="10" transform="rotate(120)"/>
+        <ellipse ry="46" rx="10" transform="rotate(150)"/>
+      </g>
+    </g>
+    <g class="star-spin" style="animation-duration:12s">
+      <polygon points="0,-28 6,-6 28,0 6,6 0,28 -6,6 -28,0 -6,-6" fill="#9050d0" opacity=".25"/>
+    </g>
+    <circle r="12" fill="#9050d0" opacity=".2"/>
+    <circle r="6" fill="#9050d0" opacity=".6" class="pulse-anim"/>
+  </g>
+  <!-- Pointed arch -->
+  <path d="M65,20 L65,170 Q65,80 200,72 Q335,80 335,170 L335,20" fill="none" stroke="#9050d0" stroke-width="1.2" opacity=".3" class="draw-in"/>
+  <!-- Text -->
+  <text x="200" y="256" text-anchor="middle" font-family="Amiri,serif" font-size="${small?12:16}" fill="#5020a0" opacity=".65">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</text>
+  <line x1="60" y1="272" x2="340" y2="272" stroke="#9050d0" stroke-width=".4" opacity=".3"/>
+  <text x="200" y="315" text-anchor="middle" font-family="Playfair Display,serif" font-size="${small?19:30}" fill="#3a1080" letter-spacing="1">Zaid</text>
+  <text x="200" y="342" text-anchor="middle" font-family="Cormorant Garamond,serif" font-size="${small?12:17}" fill="#7040b0" letter-spacing="5">✦</text>
+  <text x="200" y="375" text-anchor="middle" font-family="Playfair Display,serif" font-size="${small?19:30}" fill="#3a1080" letter-spacing="1">Nour</text>
+  <text x="200" y="406" text-anchor="middle" font-family="Cormorant Garamond,serif" font-size="${small?9:12}" fill="#7040b0" letter-spacing="3" font-style="italic">Together Forever</text>
+  <text x="200" y="445" text-anchor="middle" font-family="Cinzel,serif" font-size="${small?7:10}" fill="#8050c0" letter-spacing="3">RABI AL-AWWAL · 1446</text>
+  <text x="200" y="500" text-anchor="middle" font-family="Amiri,serif" font-size="${small?14:20}" fill="#9050d0" opacity=".35">☽ ✦ ☾</text>
+  </svg>`
+},
 
-            <p>
-              I never imagined that the first friend I met in TKM would turn out
-              to be one of my best friends there.
-            </p>
+// ── 6. JADE LATTICE WINDOW ────────────────────────────────────
+{
+  label:"Jade Lattice",
+  bg:"linear-gradient(150deg,#f2faf6,#ddf0e8)",
+  render:(id,small)=>`
+  <svg viewBox="0 0 400 533" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" style="position:absolute;top:0;left:0">
+  <defs>
+    <radialGradient id="g6${id}" cx="50%" cy="50%"><stop offset="0%" stop-color="#f8fefb"/><stop offset="100%" stop-color="#d0ecdc"/></radialGradient>
+    <pattern id="lat6${id}" x="0" y="0" width="30" height="30" patternUnits="userSpaceOnUse">
+      <path d="M0,15 L15,0 L30,15 L15,30 Z" fill="none" stroke="#1a6a48" stroke-width=".4" opacity=".15"/>
+      <circle cx="15" cy="15" r="3" fill="none" stroke="#1a6a48" stroke-width=".3" opacity=".1"/>
+    </pattern>
+  </defs>
+  <rect width="400" height="533" fill="url(#g6${id})"/>
+  <rect width="400" height="533" fill="url(#lat6${id})"/>
+  <!-- Side columns -->
+  <rect x="14" y="14" width="35" height="505" fill="#1a6a48" opacity=".05" rx="2"/>
+  <rect x="351" y="14" width="35" height="505" fill="#1a6a48" opacity=".05" rx="2"/>
+  <!-- Column details -->
+  <g opacity=".25" stroke="#1a6a48" fill="none">
+    <rect x="14" y="14" width="35" height="505" stroke-width=".6" rx="2"/>
+    <line x1="31" y1="30" x2="31" y2="504" stroke-width=".4" stroke-dasharray="4 8"/>
+    <rect x="351" y="14" width="35" height="505" stroke-width=".6" rx="2"/>
+    <line x1="369" y1="30" x2="369" y2="504" stroke-width=".4" stroke-dasharray="4 8"/>
+  </g>
+  <!-- Mughal arch (trefoil) -->
+  <path d="M70,20 L70,120 Q70,65 130,60 Q160,57 160,80 Q160,95 140,100 Q165,105 165,130 Q165,90 200,85 Q235,90 235,130 Q235,105 260,100 Q240,95 240,80 Q240,57 270,60 Q330,65 330,120 L330,20" fill="none" stroke="#1a6a48" stroke-width="1.5" opacity=".4" class="draw-in"/>
+  <!-- Central star -->
+  <g transform="translate(200,130)">
+    <g class="star-spin" style="animation-duration:22s">
+      <polygon points="0,-42 10,-10 42,0 10,10 0,42 -10,10 -42,0 -10,-10" fill="none" stroke="#1a6a48" stroke-width="1" opacity=".35"/>
+    </g>
+    <g class="star-rev" style="animation-duration:16s">
+      <polygon points="0,-28 7,-7 28,0 7,7 0,28 -7,7 -28,0 -7,-7" fill="#1a6a48" opacity=".15"/>
+    </g>
+    <circle r="8" fill="#1a6a48" opacity=".5" class="pulse-anim"/>
+    <circle r="3" fill="#1a6a48"/>
+  </g>
+  <!-- Geometric dividers -->
+  <g opacity=".25">
+    <path d="M50,285 L175,285 L200,270 L225,285 L350,285" stroke="#1a6a48" stroke-width=".7" fill="none"/>
+    <path d="M50,430 L175,430 L200,415 L225,430 L350,430" stroke="#1a6a48" stroke-width=".7" fill="none"/>
+  </g>
+  <!-- Corner diamonds -->
+  <g fill="#1a6a48" opacity=".35">
+    <polygon points="200,16 208,28 200,40 192,28"/>
+    <polygon points="200,494 208,506 200,518 192,506"/>
+  </g>
+  <!-- Text -->
+  <text x="200" y="250" text-anchor="middle" font-family="Amiri,serif" font-size="${small?13:17}" fill="#0d4a30" opacity=".65">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</text>
+  <text x="200" y="310" text-anchor="middle" font-family="IM Fell English,serif" font-size="${small?18:28}" font-style="italic" fill="#0a3a20">Hassan</text>
+  <text x="200" y="338" text-anchor="middle" font-family="Cormorant Garamond,serif" font-size="${small?12:16}" fill="#2a8a58" letter-spacing="4">⟡</text>
+  <text x="200" y="368" text-anchor="middle" font-family="IM Fell English,serif" font-size="${small?18:28}" font-style="italic" fill="#0a3a20">Khadija</text>
+  <text x="200" y="400" text-anchor="middle" font-family="Cormorant Garamond,serif" font-size="${small?9:12}" fill="#2a7a50" letter-spacing="3" font-style="italic">Nikah ul Mubarak</text>
+  <text x="200" y="445" text-anchor="middle" font-family="Cinzel,serif" font-size="${small?7:10}" fill="#3a8a60" letter-spacing="3">RAMADAN · 1446 H</text>
+  <text x="200" y="490" text-anchor="middle" font-family="Amiri,serif" font-size="${small?13:18}" fill="#1a6a48" opacity=".4">الله أكبر</text>
+  </svg>`
+},
 
-            <p>
-              From 2019 to 2026, we've come such a long way. You were always
-              there beside me through all my highs and lows, ups and downs. You
-              handled my situations in ways I still don't know how to. Not just
-              mine, but for so many others too — you've always been such a
-              strong emotional support.
-            </p>
+// ── 7. COPPER DESERT SUNSET ───────────────────────────────────
+{
+  label:"Copper Desert",
+  bg:"linear-gradient(155deg,#fdf4eb,#f0dfc8)",
+  render:(id,small)=>`
+  <svg viewBox="0 0 400 533" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" style="position:absolute;top:0;left:0">
+  <defs>
+    <radialGradient id="g7${id}" cx="50%" cy="30%"><stop offset="0%" stop-color="#fffaf3"/><stop offset="100%" stop-color="#eddcc0"/></radialGradient>
+    <radialGradient id="sun7${id}" cx="50%" cy="50%"><stop offset="0%" stop-color="#e8a040" stop-opacity=".4"/><stop offset="100%" stop-color="#c07820" stop-opacity="0"/></radialGradient>
+    <pattern id="sand7${id}" x="0" y="0" width="10" height="10" patternUnits="userSpaceOnUse">
+      <circle cx="5" cy="5" r=".6" fill="#b07030" opacity=".08"/>
+    </pattern>
+  </defs>
+  <rect width="400" height="533" fill="url(#g7${id})"/>
+  <rect width="400" height="533" fill="url(#sand7${id})"/>
+  <!-- Sunset glow -->
+  <ellipse cx="200" cy="150" rx="120" ry="80" fill="url(#sun7${id})" class="pulse-anim" style="animation-duration:4s"/>
+  <!-- Ornate outer frame -->
+  <rect x="12" y="12" width="376" height="509" fill="none" stroke="#b07830" stroke-width="1.5" opacity=".4" rx="3"/>
+  <rect x="18" y="18" width="364" height="497" fill="none" stroke="#c08840" stroke-width=".5" opacity=".25" rx="2"/>
+  <!-- Iwan arch (grand) -->
+  <path d="M55,18 L55,175 Q55,75 200,68 Q345,75 345,175 L345,18 Z" fill="#b07830" opacity=".05"/>
+  <path d="M55,18 L55,175 Q55,75 200,68 Q345,75 345,175 L345,18" fill="none" stroke="#b07830" stroke-width="2" opacity=".45" class="draw-in"/>
+  <!-- Palm trees (geometric) -->
+  <g opacity=".22" fill="#7a4a18" stroke="none">
+    <rect x="32" y="300" width="5" height="80" rx="2"/>
+    <ellipse cx="34.5" cy="295" rx="14" ry="20" transform="rotate(-15,34.5,295)"/>
+    <ellipse cx="34.5" cy="295" rx="12" ry="18" transform="rotate(15,34.5,295)"/>
+    <rect x="363" y="300" width="5" height="80" rx="2"/>
+    <ellipse cx="365.5" cy="295" rx="14" ry="20" transform="rotate(15,365.5,295)"/>
+    <ellipse cx="365.5" cy="295" rx="12" ry="18" transform="rotate(-15,365.5,295)"/>
+  </g>
+  <!-- Animated sun mandala -->
+  <g transform="translate(200,125)" class="glow-anim" style="animation-duration:4s">
+    <g class="star-spin" style="animation-duration:35s">
+      <polygon points="0,-55 13,-13 55,0 13,13 0,55 -13,13 -55,0 -13,-13" fill="none" stroke="#c08030" stroke-width="1" opacity=".25"/>
+    </g>
+    <g class="star-rev" style="animation-duration:18s">
+      <polygon points="0,-36 9,-9 36,0 9,9 0,36 -9,9 -36,0 -9,-9" fill="#c08030" opacity=".15"/>
+    </g>
+    <g class="star-spin" style="animation-duration:10s">
+      <polygon points="0,-22 5.5,-5.5 22,0 5.5,5.5 0,22 -5.5,5.5 -22,0 -5.5,-5.5" fill="#c08030" opacity=".3"/>
+    </g>
+    <circle r="9" fill="#c08030" opacity=".5" class="pulse-anim"/>
+    <circle r="4" fill="#d09040"/>
+  </g>
+  <!-- Sand dune silhouette -->
+  <path d="M0,380 Q60,355 120,370 Q180,385 240,360 Q300,340 360,365 Q390,378 400,380 L400,533 L0,533 Z" fill="#c08840" opacity=".08"/>
+  <!-- Divider -->
+  <g opacity=".35">
+    <line x1="50" y1="300" x2="170" y2="300" stroke="#b07830" stroke-width=".6"/>
+    <polygon points="200,293 208,300 200,307 192,300" fill="#b07830"/>
+    <line x1="230" y1="300" x2="350" y2="300" stroke="#b07830" stroke-width=".6"/>
+  </g>
+  <!-- Text -->
+  <text x="200" y="255" text-anchor="middle" font-family="Amiri,serif" font-size="${small?13:17}" fill="#7a4a10" opacity=".65">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</text>
+  <text x="200" y="328" text-anchor="middle" font-family="Libre Baskerville,serif" font-size="${small?18:27}" fill="#5a3008" letter-spacing="2">Ahmad</text>
+  <text x="200" y="356" text-anchor="middle" font-family="Cormorant Garamond,serif" font-size="${small?12:16}" fill="#b07830" letter-spacing="4">✦ &amp; ✦</text>
+  <text x="200" y="386" text-anchor="middle" font-family="Libre Baskerville,serif" font-size="${small?18:27}" fill="#5a3008" letter-spacing="2">Safiya</text>
+  <text x="200" y="418" text-anchor="middle" font-family="Cormorant Garamond,serif" font-size="${small?9:12}" fill="#8a5820" letter-spacing="3" font-style="italic">Desert Rose Wedding</text>
+  <text x="200" y="456" text-anchor="middle" font-family="Cinzel,serif" font-size="${small?7:10}" fill="#a07030" letter-spacing="3">SHAWWAL 1446</text>
+  <text x="200" y="500" text-anchor="middle" font-family="Amiri,serif" font-size="${small?14:20}" fill="#b07830" opacity=".4">☽ ✦ ☾</text>
+  </svg>`
+},
 
-            <div class="divider">✦ &nbsp;&nbsp; ✦ &nbsp;&nbsp; ✦</div>
+// ── 8. PEARL & INDIGO CALLIGRAPHY ────────────────────────────
+{
+  label:"Pearl Indigo",
+  bg:"linear-gradient(150deg,#f4f6fe,#e0e8f8)",
+  render:(id,small)=>`
+  <svg viewBox="0 0 400 533" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" style="position:absolute;top:0;left:0">
+  <defs>
+    <radialGradient id="g8${id}" cx="50%" cy="50%"><stop offset="0%" stop-color="#f8faff"/><stop offset="100%" stop-color="#d8e4f8"/></radialGradient>
+    <pattern id="p8${id}" x="0" y="0" width="28" height="28" patternUnits="userSpaceOnUse">
+      <polygon points="14,2 16.5,10 25,10 18.5,15 21,23 14,18 7,23 9.5,15 3,10 11.5,10" fill="#2030a0" opacity=".06"/>
+    </pattern>
+  </defs>
+  <rect width="400" height="533" fill="url(#g8${id})"/>
+  <rect width="400" height="533" fill="url(#p8${id})"/>
+  <!-- Ornate double border -->
+  <rect x="10" y="10" width="380" height="513" fill="none" stroke="#2030a0" stroke-width="1.5" opacity=".2" rx="4"/>
+  <rect x="16" y="16" width="368" height="501" fill="none" stroke="#2030a0" stroke-width=".5" opacity=".15" rx="3"/>
+  <!-- Decorative corner pieces -->
+  <g opacity=".4" stroke="#2030a0" fill="none">
+    <path d="M10,60 L40,10 L80,10" stroke-width="1.2"/>
+    <path d="M390,60 L360,10 L320,10" stroke-width="1.2"/>
+    <path d="M10,473 L40,523 L80,523" stroke-width="1.2"/>
+    <path d="M390,473 L360,523 L320,523" stroke-width="1.2"/>
+    <circle cx="24" cy="24" r="5" stroke-width=".8" fill="#2030a0" opacity=".3"/>
+    <circle cx="376" cy="24" r="5" stroke-width=".8" fill="#2030a0" opacity=".3"/>
+    <circle cx="24" cy="509" r="5" stroke-width=".8" fill="#2030a0" opacity=".3"/>
+    <circle cx="376" cy="509" r="5" stroke-width=".8" fill="#2030a0" opacity=".3"/>
+  </g>
+  <!-- Khatam (interlocking stars) background -->
+  <g opacity=".08" transform="translate(200,150)">
+    ${[0,30,60,90,120,150].map(a=>`<polygon points="0,-60 14,-14 60,0 14,14 0,60 -14,14 -60,0 -14,-14" fill="none" stroke="#2030a0" stroke-width="1" transform="rotate(${a})"/>`).join('')}
+  </g>
+  <!-- Main star -->
+  <g transform="translate(200,148)">
+    <g class="star-spin" style="animation-duration:28s">
+      <circle r="65" fill="none" stroke="#2030a0" stroke-width=".5" opacity=".2"/>
+      <polygon points="0,-58 14,-14 58,0 14,14 0,58 -14,14 -58,0 -14,-14" fill="none" stroke="#2030a0" stroke-width="1" opacity=".3"/>
+    </g>
+    <g class="star-rev" style="animation-duration:18s">
+      <polygon points="0,-40 10,-10 40,0 10,10 0,40 -10,10 -40,0 -10,-10" fill="#2030a0" opacity=".1"/>
+    </g>
+    <g class="star-spin" style="animation-duration:10s">
+      <polygon points="0,-22 5.5,-5.5 22,0 5.5,5.5 0,22 -5.5,5.5 -22,0 -5.5,-5.5" fill="#2030a0" opacity=".2"/>
+    </g>
+    <circle r="8" fill="#2030a0" opacity=".4" class="pulse-anim"/>
+  </g>
+  <!-- Arch -->
+  <path d="M62,16 L62,175 Q62,78 200,70 Q338,78 338,175 L338,16" fill="none" stroke="#2030a0" stroke-width="1.5" opacity=".3" class="draw-in"/>
+  <!-- Wavy divider -->
+  <path d="M40,305 Q80,295 120,305 Q160,315 200,305 Q240,295 280,305 Q320,315 360,305" fill="none" stroke="#2030a0" stroke-width=".7" opacity=".3"/>
+  <!-- Text -->
+  <text x="200" y="258" text-anchor="middle" font-family="Amiri,serif" font-size="${small?13:18}" fill="#1020a0" opacity=".65">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</text>
+  <text x="200" y="330" text-anchor="middle" font-family="Cinzel,serif" font-size="${small?17:26}" fill="#0a1888" letter-spacing="4">Khalid</text>
+  <text x="200" y="360" text-anchor="middle" font-family="Amiri,serif" font-size="${small?13:18}" fill="#3040c0" letter-spacing="2">و</text>
+  <text x="200" y="394" text-anchor="middle" font-family="Cinzel,serif" font-size="${small?17:26}" fill="#0a1888" letter-spacing="4">Amina</text>
+  <text x="200" y="425" text-anchor="middle" font-family="Cormorant Garamond,serif" font-size="${small?9:12}" fill="#3040b0" letter-spacing="3" font-style="italic">Request your Blessed Presence</text>
+  <text x="200" y="462" text-anchor="middle" font-family="Cinzel,serif" font-size="${small?7:10}" fill="#4050c0" letter-spacing="3">19 · JULY · 2025</text>
+  <text x="200" y="500" text-anchor="middle" font-family="Amiri,serif" font-size="${small?13:19}" fill="#2030a0" opacity=".35">✦ تبارك الله ✦</text>
+  </svg>`
+},
 
-            <p>
-              For others, you may be the "strong, independent, powerful" Dilutha
-              who takes on every responsibility without hesitation. But for us,
-              you'll always be our Kindi 🤍
-            </p>
+// ── 9. CRIMSON VELVET ────────────────────────────────────────
+{
+  label:"Crimson Velvet",
+  bg:"linear-gradient(155deg,#fdf5f5,#f8e5e5)",
+  render:(id,small)=>`
+  <svg viewBox="0 0 400 533" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" style="position:absolute;top:0;left:0">
+  <defs>
+    <radialGradient id="g9${id}" cx="50%" cy="40%"><stop offset="0%" stop-color="#fff8f8"/><stop offset="100%" stop-color="#f0d8d8"/></radialGradient>
+    <pattern id="vb9${id}" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+      <path d="M10,0 L20,10 L10,20 L0,10 Z" fill="none" stroke="#9a1a2a" stroke-width=".3" opacity=".1"/>
+    </pattern>
+  </defs>
+  <rect width="400" height="533" fill="url(#g9${id})"/>
+  <rect width="400" height="533" fill="url(#vb9${id})"/>
+  <!-- Rich crimson border with double frame -->
+  <rect x="10" y="10" width="380" height="513" fill="none" stroke="#9a1a2a" stroke-width="2" opacity=".35" rx="2"/>
+  <rect x="16" y="16" width="368" height="501" fill="none" stroke="#c03040" stroke-width=".6" opacity=".2" rx="1"/>
+  <!-- Header fill -->
+  <rect x="10" y="10" width="380" height="72" fill="#9a1a2a" opacity=".08"/>
+  <rect x="10" y="451" width="380" height="72" fill="#9a1a2a" opacity=".08"/>
+  <!-- Grand arabesque arch -->
+  <path d="M48,18 L48,190 Q48,82 200,72 Q352,82 352,190 L352,18 Z" fill="#9a1a2a" opacity=".04"/>
+  <path d="M48,18 L48,190 Q48,82 200,72 Q352,82 352,190 L352,18" fill="none" stroke="#9a1a2a" stroke-width="1.8" opacity=".4" class="draw-in"/>
+  <!-- Pomegranate medallion -->
+  <g transform="translate(200,138)">
+    <g class="star-spin" style="animation-duration:32s">
+      <circle r="62" fill="none" stroke="#9a1a2a" stroke-width=".6" opacity=".2"/>
+      <polygon points="0,-56 13,-13 56,0 13,13 0,56 -13,13 -56,0 -13,-13" fill="none" stroke="#9a1a2a" stroke-width=".8" opacity=".25"/>
+    </g>
+    <g class="star-rev" style="animation-duration:19s">
+      <g fill="#9a1a2a" opacity=".12">
+        <ellipse ry="48" rx="11" transform="rotate(0)"/>
+        <ellipse ry="48" rx="11" transform="rotate(45)"/>
+        <ellipse ry="48" rx="11" transform="rotate(90)"/>
+        <ellipse ry="48" rx="11" transform="rotate(135)"/>
+      </g>
+    </g>
+    <circle r="18" fill="#9a1a2a" opacity=".1"/>
+    <circle r="10" fill="#9a1a2a" opacity=".2" class="pulse-anim"/>
+    <circle r="5" fill="#c03040" opacity=".7"/>
+  </g>
+  <!-- Geometric side panels -->
+  <g opacity=".15">
+    <rect x="10" y="240" width="38" height="200" fill="#9a1a2a"/>
+    <rect x="352" y="240" width="38" height="200" fill="#9a1a2a"/>
+  </g>
+  <!-- Lattice in side panels -->
+  <g opacity=".25" stroke="#9a1a2a" fill="none" stroke-width=".5">
+    ${[...Array(10)].map((_,i)=>`<rect x="${14}" y="${244+i*20}" width="30" height="18" rx="2"/>`).join('')}
+    ${[...Array(10)].map((_,i)=>`<rect x="${356}" y="${244+i*20}" width="30" height="18" rx="2"/>`).join('')}
+  </g>
+  <!-- Divider line -->
+  <line x1="55" y1="310" x2="345" y2="310" stroke="#9a1a2a" stroke-width=".6" opacity=".3"/>
+  <circle cx="200" cy="310" r="4" fill="#9a1a2a" opacity=".4"/>
+  <!-- Text -->
+  <text x="200" y="258" text-anchor="middle" font-family="Amiri,serif" font-size="${small?13:17}" fill="#6a0a18" opacity=".65">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</text>
+  <text x="200" y="336" text-anchor="middle" font-family="Playfair Display,serif" font-size="${small?18:28}" font-weight="700" fill="#4a0810">Ali</text>
+  <text x="200" y="364" text-anchor="middle" font-family="Cormorant Garamond,serif" font-size="${small?13:18}" fill="#9a1a2a" letter-spacing="3">&amp;</text>
+  <text x="200" y="396" text-anchor="middle" font-family="Playfair Display,serif" font-size="${small?18:28}" font-weight="700" fill="#4a0810">Zainab</text>
+  <text x="200" y="428" text-anchor="middle" font-family="Cormorant Garamond,serif" font-size="${small?9:12}" fill="#8a2030" letter-spacing="3" font-style="italic">The Wedding Feast</text>
+  <text x="200" y="465" text-anchor="middle" font-family="Cinzel,serif" font-size="${small?7:10}" fill="#aa3040" letter-spacing="3">DHU AL-HIJJAH · 1446</text>
+  <text x="200" y="505" text-anchor="middle" font-family="Amiri,serif" font-size="${small?14:20}" fill="#9a1a2a" opacity=".35">✦ بارك الله لكما ✦</text>
+  </svg>`
+},
 
-            <p>
-              I still remember that day during SIP when you were so excited to
-              become the team leader, but didn't get the chance just because
-              your phone didn't have WhatsApp. And then seeing your journey till
-              final year — becoming the program committee main, steps main — I
-              was silently watching everything like an introvert in the gallery,
-              feeling so proud of my friend.
-            </p>
+// ── 10. SAGE & SILVER GARDEN ─────────────────────────────────
+{
+  label:"Sage Garden",
+  bg:"linear-gradient(150deg,#f4f8f2,#e4f0dc)",
+  render:(id,small)=>`
+  <svg viewBox="0 0 400 533" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" style="position:absolute;top:0;left:0">
+  <defs>
+    <radialGradient id="g10${id}" cx="50%" cy="45%"><stop offset="0%" stop-color="#f8fdf5"/><stop offset="100%" stop-color="#dcecd4"/></radialGradient>
+    <pattern id="leaf10${id}" x="0" y="0" width="36" height="36" patternUnits="userSpaceOnUse">
+      <ellipse cx="18" cy="18" rx="10" ry="5" fill="none" stroke="#3a6a28" stroke-width=".3" opacity=".12" transform="rotate(45,18,18)"/>
+      <ellipse cx="18" cy="18" rx="10" ry="5" fill="none" stroke="#3a6a28" stroke-width=".3" opacity=".12" transform="rotate(-45,18,18)"/>
+    </pattern>
+  </defs>
+  <rect width="400" height="533" fill="url(#g10${id})"/>
+  <rect width="400" height="533" fill="url(#leaf10${id})"/>
+  <!-- Botanical frame - trailing vines -->
+  <g opacity=".28" fill="none" stroke="#3a6a28" stroke-width="1">
+    <!-- Top left vine -->
+    <path d="M14,14 Q50,30 40,70 Q30,110 60,130 Q90,150 70,185 Q50,220 80,240"/>
+    <ellipse cx="42" cy="50" rx="12" ry="7" transform="rotate(-40,42,50)" fill="#4a8030" opacity=".35"/>
+    <ellipse cx="56" cy="110" rx="11" ry="6" transform="rotate(30,56,110)" fill="#4a8030" opacity=".35"/>
+    <ellipse cx="62" cy="170" rx="10" ry="6" transform="rotate(-25,62,170)" fill="#4a8030" opacity=".35"/>
+    <!-- Top right vine -->
+    <path d="M386,14 Q350,30 360,70 Q370,110 340,130 Q310,150 330,185 Q350,220 320,240"/>
+    <ellipse cx="358" cy="50" rx="12" ry="7" transform="rotate(40,358,50)" fill="#4a8030" opacity=".35"/>
+    <ellipse cx="344" cy="110" rx="11" ry="6" transform="rotate(-30,344,110)" fill="#4a8030" opacity=".35"/>
+    <!-- Bottom vines -->
+    <path d="M80,500 Q120,480 160,500 Q200,518 240,500 Q280,480 320,500"/>
+    <ellipse cx="120" cy="488" rx="12" ry="6" transform="rotate(-20,120,488)" fill="#4a8030" opacity=".4"/>
+    <ellipse cx="200" cy="510" rx="14" ry="7" fill="#4a8030" opacity=".4"/>
+    <ellipse cx="280" cy="488" rx="12" ry="6" transform="rotate(20,280,488)" fill="#4a8030" opacity=".4"/>
+  </g>
+  <!-- Scallop border -->
+  <rect x="44" y="14" width="312" height="505" fill="none" stroke="#3a6a28" stroke-width="1" opacity=".2" rx="2"/>
+  <!-- Ogee arch -->
+  <path d="M72,20 L72,150 Q72,60 200,52 Q328,60 328,150 L328,20" fill="none" stroke="#3a6a28" stroke-width="1.5" opacity=".35" class="draw-in"/>
+  <path d="M72,20 L72,150 Q72,60 200,52 Q328,60 328,150 L328,20 Z" fill="#3a6a28" opacity=".04"/>
+  <!-- Flower mandala -->
+  <g transform="translate(200,120)">
+    <g class="star-rev" style="animation-duration:24s">
+      <g fill="#3a6a28" opacity=".15">
+        <ellipse ry="52" rx="11"/>
+        <ellipse ry="52" rx="11" transform="rotate(36)"/>
+        <ellipse ry="52" rx="11" transform="rotate(72)"/>
+        <ellipse ry="52" rx="11" transform="rotate(108)"/>
+        <ellipse ry="52" rx="11" transform="rotate(144)"/>
+      </g>
+    </g>
+    <g class="star-spin" style="animation-duration:15s">
+      <g fill="#3a6a28" opacity=".2">
+        <ellipse ry="32" rx="8"/>
+        <ellipse ry="32" rx="8" transform="rotate(36)"/>
+        <ellipse ry="32" rx="8" transform="rotate(72)"/>
+        <ellipse ry="32" rx="8" transform="rotate(108)"/>
+        <ellipse ry="32" rx="8" transform="rotate(144)"/>
+      </g>
+    </g>
+    <circle r="14" fill="#3a6a28" opacity=".12"/>
+    <circle r="7" fill="#3a6a28" opacity=".45" class="pulse-anim"/>
+    <circle r="3" fill="#5a9040"/>
+  </g>
+  <!-- Floral sprays mid sides -->
+  <g opacity=".25" fill="#3a6a28">
+    <circle cx="52" cy="300" r="6"/><circle cx="44" cy="312" r="4.5"/><circle cx="60" cy="315" r="4"/>
+    <circle cx="348" cy="300" r="6"/><circle cx="356" cy="312" r="4.5"/><circle cx="340" cy="315" r="4"/>
+  </g>
+  <!-- Silver (lighter) divider -->
+  <path d="M70,310 Q110,302 150,310 Q200,318 250,310 Q290,302 330,310" fill="none" stroke="#3a6a28" stroke-width=".7" opacity=".3"/>
+  <circle cx="200" cy="310" r="5" fill="none" stroke="#3a6a28" stroke-width=".8" opacity=".5"/>
+  <circle cx="200" cy="310" r="2" fill="#3a6a28" opacity=".5"/>
+  <!-- Twinkling dots -->
+  ${[...Array(10)].map((_,i)=>{const x=60+Math.random()*280,y=200+Math.random()*300,d=Math.random()*3;return`<circle cx="${x.toFixed(0)}" cy="${y.toFixed(0)}" r="1.2" fill="#3a6a28" style="animation:twinkle ${2+d}s ease-in-out infinite;animation-delay:${d}s" opacity=".5"/>`;}).join('')}
+  <!-- Text -->
+  <text x="200" y="252" text-anchor="middle" font-family="Amiri,serif" font-size="${small?12:16}" fill="#2a5020" opacity=".65">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</text>
+  <text x="200" y="336" text-anchor="middle" font-family="Playfair Display,serif" font-size="${small?17:26}" font-style="italic" fill="#1a3a10">Tariq</text>
+  <text x="200" y="360" text-anchor="middle" font-family="Cormorant Garamond,serif" font-size="${small?13:18}" fill="#5a9040" letter-spacing="3">✿</text>
+  <text x="200" y="392" text-anchor="middle" font-family="Playfair Display,serif" font-size="${small?17:26}" font-style="italic" fill="#1a3a10">Ruqayyah</text>
+  <text x="200" y="424" text-anchor="middle" font-family="Cormorant Garamond,serif" font-size="${small?9:12}" fill="#4a7830" letter-spacing="3" font-style="italic">Garden Nikah</text>
+  <text x="200" y="460" text-anchor="middle" font-family="Cinzel,serif" font-size="${small?7:10}" fill="#5a8840" letter-spacing="3">SPRING · 1446 H</text>
+  <text x="200" y="500" text-anchor="middle" font-family="Amiri,serif" font-size="${small?13:18}" fill="#3a6a28" opacity=".4">✦ جزاكم الله خيراً ✦</text>
+  </svg>`
+}
 
-            <p>
-              All those times when me and Hannapi used to talk about Favas and
-              Junaidikka, you would always join in with your "unrealistic"
-              expectations about your future partner. And now look at you,
-              everything has fallen into place, and you've finally found your
-              forever after all that "research" 🥹
-            </p>
+];
 
-            <div class="divider">✦ &nbsp;&nbsp; ✦ &nbsp;&nbsp; ✦</div>
+// ══════════════════════════════════════════════
+// BUILD GALLERY
+// ══════════════════════════════════════════════
+const grid = document.getElementById('grid');
+cards.forEach((card,i)=>{
+  const div = document.createElement('div');
+  div.className='thumb';
+  div.style.background=card.bg;
+  div.innerHTML = card.render(i+'s',true) + `<div class="thumb-label">${card.label}</div>`;
+  div.onclick=()=>openModal(i);
+  grid.appendChild(div);
+});
 
-            <p>
-              I don't even know how to express what I'm feeling right now. My
-              Kindi is stepping into one of the most beautiful chapters of her
-              life — the one she always dreamed of.
-            </p>
-
-            <p>
-              You were there for me at every moment, especially during my
-              nikkah. I truly, really wish I could be there beside you now. I
-              held onto hope till the very last moment that I'd somehow make it
-              to your big day.
-            </p>
-
-            <p>
-              I'll be waiting to see the most vibrant, cheerful bride in all the
-              photos that are yet to come ✨
-            </p>
-
-            <p class="ltr-closer">
-              Happy Dilsha Mubarak, Kindikkuttaa 🤍
-              <span class="sign">— With all my love, always</span>
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="petals" id="petals"></div>
-
-    <script>
-      const envWrap = document.getElementById("envWrap");
-      const stage = document.getElementById("stage");
-      const letterPg = document.getElementById("letter-page");
-      const petalsCt = document.getElementById("petals");
-      let opened = false;
-
-      const EMOJIS = ["🌸", "🌺", "🌷", "✨", "💫", "🌼", "💐"];
-
-      function spawnPetals() {
-        for (let i = 0; i < 34; i++) {
-          setTimeout(() => {
-            const el = document.createElement("span");
-            el.className = "petal";
-            el.textContent = EMOJIS[Math.floor(Math.random() * EMOJIS.length)];
-            el.style.left = Math.random() * 100 + "vw";
-            el.style.fontSize = 10 + Math.random() * 20 + "px";
-            const dur = 3.5 + Math.random() * 3.5;
-            el.style.animationDuration = dur + "s";
-            petalsCt.appendChild(el);
-            setTimeout(() => el.remove(), dur * 1000 + 300);
-          }, i * 90);
-        }
-      }
-
-      envWrap.addEventListener("click", () => {
-        if (opened) return;
-        opened = true;
-        envWrap.classList.add("open");
-
-        setTimeout(() => {
-          stage.style.display = "none";
-          letterPg.classList.add("visible");
-          window.scrollTo({ top: 0, behavior: "instant" });
-          spawnPetals();
-        }, 950);
-      });
-    </script>
-  </body>
+// ══════════════════════════════════════════════
+// MODAL
+// ══════════════════════════════════════════════
+function openModal(i){
+  const modal=document.getElementById('modal');
+  const view=document.getElementById('cardView');
+  const card=cards[i];
+  view.style.background=card.bg;
+  view.innerHTML=card.render(i+'m',false);
+  modal.classList.add('active');
+  document.body.style.overflow='hidden';
+}
+function closeModal(){
+  document.getElementById('modal').classList.remove('active');
+  document.body.style.overflow='';
+}
+document.getElementById('modal').addEventListener('click',function(e){
+  if(e.target===this)closeModal();
+});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal();});
+</script>
+</body>
 </html>
